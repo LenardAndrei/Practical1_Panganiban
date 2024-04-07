@@ -27,34 +27,38 @@ def sign_up():
     print("Create Account")
     while True:
         username = input("Create Username: ")
-        while True:
-            password = input("Create Password: ")
-            if len(password) < 8:
-                print("Password must at least 8 characters")
-            else:
-                password1 = input("Re-enter Password: ")
-                balance = 0
-                if password == password1:
-                    user_account[username] = {'password' : password, 'balance' : balance}
-                    print("You already create an account")
-                    print(f"Your username is {username} and your password is {password}.")
-
-                    while True:
-                        try:
-                            print("")
-                            choice = int(input("Press 1 if you want to go main menu or press 2 if you want to log in: "))
-                            if choice == 1:
-                                main_menu()
-                            if choice == 2:
-                                log_in()
-                            else:
-                                print("Invalid input. Try again")
-                                continue
-                        except ValueError as e:
-                            print(e)    
+        if username in user_account:
+            print("Username already exist")
+            continue
+        else:
+            while True:
+                password = input("Create Password: ")
+                if len(password) < 8:
+                    print("Password must at least 8 characters")
                 else:
-                    print("Invalid password. Try again")
-                    continue
+                    password1 = input("Re-enter Password: ")
+                    balance = 0
+                    if password == password1:
+                        user_account[username] = {'password' : password, 'balance' : balance}
+                        print("You already create an account")
+                        print(f"Your username is {username} and your password is {password}.")
+
+                        while True:
+                            try:
+                                print("")
+                                choice = int(input("Press 1 if you want to go main menu or press 2 if you want to log in: "))
+                                if choice == 1:
+                                    main_menu()
+                                if choice == 2:
+                                    log_in()
+                                else:
+                                    print("Invalid input. Try again")
+                                    continue
+                            except ValueError as e:
+                                print(e)    
+                    else:
+                        print("Invalid password. Try again")
+                        continue
             
 
 def log_in():
