@@ -469,85 +469,94 @@ def user_menu(username):
 def shopping(username):
     print("")
     while True:
-        print("Go Shopping")
-        print("1. View Available Shoes")
-        print("2. Buy")
-        print("3. User Menu")
-    
-        choice = int(input("Enter your choice: "))
+        try: 
+            print("Go Shopping")
+            print("1. View Available Shoes")
+            print("2. Buy")
+            print("3. User Menu")
+        
+            choice = int(input("Enter your choice: "))
 
-        if choice == 1:
-            view_available(username)
-        if choice == 2:
-            buy_shoes(username)
-        if choice == 3:
-            user_menu(username)
-        else:
-            print("Invalid input. Try again")
-            continue
-       
+            if choice == 1:
+                view_available(username)
+            if choice == 2:
+                buy_shoes(username)
+            if choice == 3:
+                user_menu(username)
+            else:
+                print("Invalid input. Try again")
+                continue
+        except ValueError as e:
+            print(e)    
+
+
 def view_available(username):
-    print("")
     while True:
-        print("View Available Shoes")
-        print("1. Nike")
-        print("2. Adidas")
-        print("3. New Balance")
-
-        choice = int(input("Enter your choice: "))
-        if choice == 1:
-            print([nike_shoes])
+        try:
             print("")
-            while True:
-                try:
-                    choice = int(input("Press 1 if you want to buy shoes or press 2 if you want to go user menu: "))
-                    if choice == 1:
-                        buy_shoes(username)
-                    if choice == 2:
-                        user_menu(username)
-                    else:
-                        print("Invalid input. Try again")
-                        continue
-                except ValueError as e:
-                    print(e)
+            print("View Available Shoes")
+            print("1. Nike")
+            print("2. Adidas")
+            print("3. New Balance")
 
-        if choice == 2:
-            print([adidas_shoes])
-            print("")
-            while True:
-                try:
-                    choice = int(input("Press 1 if you want to buy shoes or press 2 if you want to go user menu: "))
-                    if choice == 1:
-                        buy_shoes(username)
-                    if choice == 2:
-                        user_menu(username)
-                    else:
-                        print("Invalid input. Try again")
-                        continue
-                except ValueError as e:
-                    print(e)
+            choice = int(input("Enter your choice: "))
+            if choice == 1:
+                print([nike_shoes])
+                print("")
+                while True:
+                    try:
+                        choice = int(input("Press 1 if you want to buy shoes or press 2 if you want to go user menu: "))
+                        if choice == 1:
+                            buy_shoes(username)
+                        if choice == 2:
+                            user_menu(username)
+                        else:
+                            print("Invalid input. Try again")
+                            continue
+                    except ValueError as e:
+                        print(e)
 
-        if choice == 3:
-            print([newbalance_shoes])
-            print("")
-            while True:
-                try:
-                    choice = int(input("Press 1 if you want to buy shoes or press 2 if you want to go user menu: "))
-                    if choice == 1:
-                        buy_shoes(username)
-                    if choice == 2:
-                        user_menu(username)
-                    else:
-                        print("Invalid input. Try again")
-                        continue
-                except ValueError as e:
-                    print(e)
-        else:
-            print("Invalid input. Try again")
-            continue
+            if choice == 2:
+                print([adidas_shoes])
+                print("")
+                while True:
+                    try:
+                        choice = int(input("Press 1 if you want to buy shoes or press 2 if you want to go user menu: "))
+                        if choice == 1:
+                            buy_shoes(username)
+                        if choice == 2:
+                            user_menu(username)
+                        else:
+                            print("Invalid input. Try again")
+                            continue
+                    except ValueError as e:
+                        print(e)
+
+            if choice == 3:
+                print([newbalance_shoes])
+                print("")
+                while True:
+                    try:
+                        choice = int(input("Press 1 if you want to buy shoes or press 2 if you want to go user menu: "))
+                        if choice == 1:
+                            buy_shoes(username)
+                        if choice == 2:
+                            user_menu(username)
+                        else:
+                            print("Invalid input. Try again")
+                            continue
+                    except ValueError as e:
+                        print(e)
+            else:
+                print("Invalid input. Try again")
+                continue
+        except ValueError as e:
+            print(e)
+
 
 def buy_shoes(username):
     while True:
+        try:
             print("")
             print("Choose shoe brand that you want to buy")
             print("1. Nike")
@@ -668,12 +677,14 @@ def buy_shoes(username):
             else:
                 print("Invalid input. Try again")
                 continue
-
+        except ValueError as e:
+            print(e)
     
+
 def deposit(username):
-    print("")
     while True:
         try:
+            print("")
             print("Deposit")
             dep_amt = int(input("Enter the amount you want to deposit: "))
 
@@ -730,9 +741,9 @@ def shoe_collection(username):
 
 
 def main_menu():
-    print("")
     while True:
         try:
+            print("")
             print("MAIN MENU")
             print("1. Create Account")
             print("2. Log In Account")
