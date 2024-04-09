@@ -1,18 +1,26 @@
-nike_shoes = {"Nike Air Force 1" : {'Quantity' : 3, 'Php' : 5000},
-              "Nike Cortez" : {'Quantity' : 2, 'Php' : 7000},
-              "Nike Air Max" : {'Quantity' : 5, 'Php' : 10000},
-              "Nike Dunk Low" : {'Quantity' : 2, 'Php' : 8000},
+nike_shoes = {"Nike Air Force 1" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3,'Php' : 5000},
+  
+              "Nike Cortez" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3, 'Php' : 7000},
+             
+              "Nike Air Max" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3, 'Php' : 10000},
+             
+              "Nike Dunk Low" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3, 'Php' : 8000},
               } 
 
-adidas_shoes = {"Adidas Samba" : {'Quantity' : 5, 'Php' : 8000},
-                "Adidas Stan Smith" : {'Quantity' : 3, 'Php' : 5000},
-                "Adidas Superstar" : {'Quantity' : 3, 'Php' : 7000},
-                "Adidas Ultra Boost" : {'Quantity' : 2, 'Php' : 10000},
+adidas_shoes = {"Adidas Samba" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3, 'Php' : 8000},
+
+                "Adidas Stan Smith" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3, 'Php' : 5000},
+
+                "Adidas Superstar" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3, 'Php' : 7000},
+
+                "Adidas Ultra Boost" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3, 'Size 6' : 3, 'Php' : 10000},
                 }
 
-newbalance_shoes = {"New Balance 550" : {'Quantity' : 3, 'Php' : 8000},
-                    "New Balance 530" : {'Quantity' : 2, 'Php' : 5000},
-                    "New Balance 327" : {'Quantity' : 5, 'Php' : 5700},
+newbalance_shoes = {"New Balance 550" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3, 'Php' : 8000},
+
+                    "New Balance 530" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3, 'Php' : 5000},
+
+                    "New Balance 327" : {'Size 10' : 3, 'Size 9' : 3, 'Size 8' : 3,'Size 7' : 3,'Size 6' : 3, 'Php' : 5700},
                     }
 
 user_account = {}
@@ -156,7 +164,7 @@ def edit_nike():
             print("Edit Nike")
             print([nike_shoes])
             print("1. Edit Price")
-            print("2. Edit Quantity")
+            print("2. Edit Size Quantity")
             print("3. Add New Shoes")
             print("4. Back")
             choice = int(input("Enter your choice: "))
@@ -190,27 +198,116 @@ def edit_nike():
 
             if choice == 2:
                 print("")
-                print("Edit Quantity")
+                print("Edit Size Quantity")
                 while True:
                     shoe_name = input("Type the shoe name you want to edit: ")
                     if shoe_name in nike_shoes:
-                        new_quantity = int(input("Enter the new quantity: "))
-                        nike_shoes[shoe_name]['Quantity'] = new_quantity
-                        print("Quantity is updated successfully")
-                        print([nike_shoes])
-                        while True:
-                            try:
-                                choice = int(input("Press 1 if you want to edit nike again or press 2 if you want to go back: "))
+                        print("Choose the size that you want to edit the quantity")
+                        print("Enter [1] for Size 10")
+                        print("Enter [2] for Size 9")
+                        print("Enter [3] for Size 8")
+                        print("Enter [4] for Size 7")
+                        print("Enter [5] for Size 6")
 
-                                if choice == 1:
-                                    edit_nike()
-                                if choice == 2:
-                                    admin_edit()
-                                else:
-                                    print("Invalid input. Try again")
-                                    continue
-                            except ValueError as e:
-                                print(e)
+                        choice = int(input("Enter your choice: "))
+
+                        if choice == 1:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            nike_shoes[shoe_name]['Size 10'] = new_size_quantity
+                            print("Size 10 quantity is updated successfully")
+                            print([nike_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit nike again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_nike()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 2:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            nike_shoes[shoe_name]['Size 9'] = new_size_quantity
+                            print("Size 9 quantity is updated successfully")
+                            print([nike_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit nike again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_nike()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 3:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            nike_shoes[shoe_name]['Size 8'] = new_size_quantity
+                            print("Size 8 quantity is updated successfully")
+                            print([nike_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit nike again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_nike()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 4:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            nike_shoes[shoe_name]['Size 7'] = new_size_quantity
+                            print("Size 7 quantity is updated successfully")
+                            print([nike_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit nike again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_nike()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 5:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            nike_shoes[shoe_name]['Size 6'] = new_size_quantity
+                            print("Size 6 quantity is updated successfully")
+                            print([nike_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit nike again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_nike()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+                        else:
+                            print("Invalid input. Try again")
+                            continue
                     else:
                         print("Shoe name doesn't exist")
                         continue
@@ -219,10 +316,15 @@ def edit_nike():
                 print("")
                 print("Add New Nike Shoes")
                 shoe_name = input("Enter the shoe name that you want to add: ")
-                quantity = int(input("Enter the quantity of shoes that you want to add: "))
                 price = int(input("Enter the price of shoes that you want to add: "))
-                nike_shoes[shoe_name] = {'Quantity': quantity, 'Php': price}
+                size_10 = int(input("Enter size 10 quantity: "))
+                size_9 = int(input("Enter the size 9 quantity: "))
+                size_8 = int(input("Enter the size 8 quantity: "))
+                size_7 = int(input("Enter the size 7 quantity: "))
+                size_6 = int(input("Enter the size 6 quantity: "))
+                nike_shoes[shoe_name] = {'Size 10' : size_10, 'Size 9' : size_9, 'Size 8' : size_8, 'Size 7' : size_7, 'Size 6' : size_6, 'Php': price}
                 print(f"{shoe_name} has been added in Nike Shoes successfully")
+                print([nike_shoes])
                 while True:
                     try:
                         choice = int(input("Press 1 if you want to edit nike again or press 2 if you want to go back: "))
@@ -253,7 +355,7 @@ def edit_adidas():
             print("Edit Adidas")
             print([adidas_shoes])
             print("1. Edit Price")
-            print("2. Edit Quantity")
+            print("2. Edit Size Quantity")
             print("3. Add New Shoes")
             print("4. Back")
             choice = int(input("Enter your choice: "))
@@ -287,39 +389,131 @@ def edit_adidas():
 
             if choice == 2:
                 print("")
-                print("Edit Quantity")
+                print("Edit Size Quantity")
                 while True:
                     shoe_name = input("Type the shoe name you want to edit: ")
                     if shoe_name in adidas_shoes:
-                        new_quantity = int(input("Enter the new quantity: "))
-                        adidas_shoes[shoe_name]['Quantity'] = new_quantity
-                        print("Quantity is updated successfully")
-                        print([adidas_shoes])
-                        while True:
-                            try:
-                                choice = int(input("Press 1 if you want to edit adidas again or press 2 if you want to go back: "))
+                        print("Choose the size that you want to edit the quantity")
+                        print("Enter [1] for Size 10")
+                        print("Enter [2] for Size 9")
+                        print("Enter [3] for Size 8")
+                        print("Enter [4] for Size 7")
+                        print("Enter [5] for Size 6")
 
-                                if choice == 1:
-                                    edit_adidas()
-                                if choice == 2:
-                                    admin_edit()
-                                else:
-                                    print("Invalid input. Try again")
-                                    continue
-                            except ValueError as e:
-                                print(e)
+                        choice = int(input("Enter your choice: "))
+
+                        if choice == 1:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            adidas_shoes[shoe_name]['Size 10'] = new_size_quantity
+                            print("Size 10 quantity is updated successfully")
+                            print([adidas_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit adidas again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_adidas()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+ 
+                        if choice == 2:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            adidas_shoes[shoe_name]['Size 9'] = new_size_quantity
+                            print("Size 9 quantity is updated successfully")
+                            print([adidas_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit adidas again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_adidas()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 3:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            adidas_shoes[shoe_name]['Size 8'] = new_size_quantity
+                            print("Size 8 quantity is updated successfully")
+                            print([adidas_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit adidas again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_adidas()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 4:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            adidas_shoes[shoe_name]['Size 7'] = new_size_quantity
+                            print("Size 7 quantity is updated successfully")
+                            print([adidas_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit adidas again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_adidas()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 5:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            adidas_shoes[shoe_name]['Size 5'] = new_size_quantity
+                            print("Size 5 quantity is updated successfully")
+                            print([adidas_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit adidas again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_adidas()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
                     else:
-                        print("Show name doesn't exist")
+                        print("Shoe name doesn't exist")
                         continue            
 
             if choice == 3:
                 print("")
                 print("Add New Adidas Shoes")
                 shoe_name = input("Enter the shoe name that you want to add: ")
-                quantity = int(input("Enter the quantity of shoes that you want to add: "))
                 price = int(input("Enter the price of shoes that you want to add: "))
-                adidas_shoes[shoe_name] = {'Quantity': quantity, 'Php': price}
+                size_10 = int(input("Enter size 10 quantity: "))
+                size_9 = int(input("Enter the size 9 quantity: "))
+                size_8 = int(input("Enter the size 8 quantity: "))
+                size_7 = int(input("Enter the size 7 quantity: "))
+                size_6 = int(input("Enter the size 6 quantity: "))
+                adidas_shoes[shoe_name] = {'Size 10' : size_10, 'Size 9' : size_9, 'Size 8' : size_8, 'Size 7' : size_7, 'Size 6' : size_6, 'Php': price}
                 print(f"{shoe_name} has been added in Adidas Shoes successfully")
+                print([adidas_shoes])
                 while True:
                     try:
                         choice = int(input("Press 1 if you want to edit adidas again or press 2 if you want to go back: "))
@@ -350,7 +544,7 @@ def edit_newbalance():
             print("Edit New Balance")
             print([newbalance_shoes])
             print("1. Edit Price")
-            print("2. Edit Quantity")
+            print("2. Edit Size Quantity")
             print("3. Add New Shoes")
             print("4. Back")
             choice = int(input("Enter your choice: "))
@@ -384,27 +578,116 @@ def edit_newbalance():
 
             if choice == 2:
                 print("")
-                print("Edit Quantity")
+                print("Edit Size Quantity")
                 while True:
                     shoe_name = input("Type the shoe name you want to edit: ")
                     if shoe_name in newbalance_shoes:
-                        new_quantity = int(input("Enter the new quantity: "))
-                        newbalance_shoes[shoe_name]['Quantity'] = new_quantity
-                        print("Quantity is updated successfully")
-                        print([newbalance_shoes])
-                        while True:
-                            try:
-                                choice = int(input("Press 1 if you want to edit new balance again or press 2 if you want to go back: "))
+                        print("Choose the size that you want to edit the quantity")
+                        print("Enter [1] for Size 10")
+                        print("Enter [2] for Size 9")
+                        print("Enter [3] for Size 8")
+                        print("Enter [4] for Size 7")
+                        print("Enter [5] for Size 6")
 
-                                if choice == 1:
-                                    edit_newbalance()
-                                if choice == 2:
-                                    admin_edit()
-                                else:
-                                    print("Invalid input.Try again")
-                                    continue
-                            except ValueError as e:
-                                print(e)
+                        choice = int(input("Enter your choice: "))
+
+                        if choice == 1:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            newbalance_shoes[shoe_name]['Size 10'] = new_size_quantity
+                            print("Size 10 quantity is updated successfully")
+                            print([newbalance_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit new balance again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_newbalance()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+ 
+                        if choice == 2:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            newbalance_shoes[shoe_name]['Size 9'] = new_size_quantity
+                            print("Size 9 quantity is updated successfully")
+                            print([newbalance_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit new balance again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_newbalance()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 3:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            newbalance_shoes[shoe_name]['Size 8'] = new_size_quantity
+                            print("Size 8 quantity is updated successfully")
+                            print([newbalance_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit new balance again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_newbalance()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 4:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            newbalance_shoes[shoe_name]['Size 7'] = new_size_quantity
+                            print("Size 7 quantity is updated successfully")
+                            print([newbalance_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit new balance again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_newbalance()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+
+                        if choice == 5:
+                            new_size_quantity = int(input("Enter the new size quantity: "))
+                            newbalance_shoes[shoe_name]['Size 6'] = new_size_quantity
+                            print("Size 6 quantity is updated successfully")
+                            print([newbalance_shoes])
+                            while True:
+                                try:
+                                    choice = int(input("Press 1 if you want to edit new balance again or press 2 if you want to go back: "))
+
+                                    if choice == 1:
+                                        edit_newbalance()
+                                    if choice == 2:
+                                        admin_edit()
+                                    else:
+                                        print("Invalid input. Try again")
+                                        continue
+                                except ValueError as e:
+                                    print(e)
+                        else:
+                            print("Invalid input. Try again")
+                            continue
                     else:
                         print("Shoe name doesn't exist")
                         continue
@@ -413,13 +696,18 @@ def edit_newbalance():
                 print("")
                 print("Add New 'New Balance' Shoes")
                 shoe_name = input("Enter the shoe name that you want to add: ")
-                quantity = int(input("Enter the quantity of shoes that you want to add: "))
                 price = int(input("Enter the price of shoes that you want to add: "))
-                newbalance_shoes[shoe_name] = {'Quantity': quantity, 'Php': price}
+                size_10 = int(input("Enter size 10 quantity: "))
+                size_9 = int(input("Enter the size 9 quantity: "))
+                size_8 = int(input("Enter the size 8 quantity: "))
+                size_7 = int(input("Enter the size 7 quantity: "))
+                size_6 = int(input("Enter the size 6 quantity: "))
+                newbalance_shoes[shoe_name] = {'Size 10' : size_10, 'Size 9' : size_9, 'Size 8' : size_8, 'Size 7' : size_7, 'Size 6' : size_6, 'Php': price}
                 print(f"{shoe_name} has been added in New Balance Shoes successfully")
+                print([newbalance_shoes])
                 while True:
                     try:
-                        choice = int(input("Press 1 if you want to edit new balance again or press 2 if you want to go back: "))
+                        choice = int(input("Press 1 if you want to edit adidas again or press 2 if you want to go back: "))
 
                         if choice == 1:
                             edit_newbalance()
@@ -569,6 +857,7 @@ def buy_shoes(username):
             print("4. Back")
 
             choice = int(input("Enter your choice: "))
+
             if choice == 1:
                 print("Nike")
                 print(nike_shoes)
@@ -577,32 +866,167 @@ def buy_shoes(username):
                 if buy_nike not in nike_shoes:
                     print("Not available")
                     buy_shoes(username)
-                if buy_nike in nike_shoes and nike_shoes[buy_nike]['Quantity'] > 0:
-                    if user_account[username]['balance'] >= nike_shoes[buy_nike]['Php']:
-                        user_account[username]['balance'] -= nike_shoes[buy_nike]['Php']
-                        nike_shoes[buy_nike]['Quantity'] -= 1
-                        if username not in user_collection:
-                            user_collection[username] = [buy_nike]
-                        else:
-                            user_collection[username].append(buy_nike)
-                        print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")
+                if buy_nike in nike_shoes:
+                        print("Choose size of the shoes you want to buy: ")
+                        print("Enter [1] for Size 10")
+                        print("Enter [2] for Size 9")
+                        print("Enter [3] for Size 8")
+                        print("Enter [4] for Size 7")
+                        print("Enter [5] for Size 6")    
+
+                        choice = int(input("Enter your choice: "))
                         while True:
                             try:
-                                choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+
                                 if choice == 1:
-                                    buy_shoes(username)
+                                    if nike_shoes[buy_nike]['Size 10'] > 0:
+                                        if user_account[username]['balance'] >= nike_shoes[buy_nike]['Php']:
+                                            user_account[username]['balance'] -= nike_shoes[buy_nike]['Php']
+                                            nike_shoes[buy_nike]['Size 10'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_nike]
+                                            else:
+                                                user_collection[username].append(buy_nike)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 10 is out of stock")
+                                        break
+
                                 if choice == 2:
-                                    user_menu(username)
+                                    if nike_shoes[buy_nike]['Size 9'] > 0:
+                                        if user_account[username]['balance'] >= nike_shoes[buy_nike]['Php']:
+                                            user_account[username]['balance'] -= nike_shoes[buy_nike]['Php']
+                                            nike_shoes[buy_nike]['Size 9'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_nike]
+                                            else:
+                                                user_collection[username].append(buy_nike)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 9 is out of stock")
+                                        break
+            
+                                if choice == 3:
+                                    if nike_shoes[buy_nike]['Size 8'] > 0:
+                                        if user_account[username]['balance'] >= nike_shoes[buy_nike]['Php']:
+                                            user_account[username]['balance'] -= nike_shoes[buy_nike]['Php']
+                                            nike_shoes[buy_nike]['Size 8'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_nike]
+                                            else:
+                                                user_collection[username].append(buy_nike)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 8 is out of stock")
+                                        break
+
+                                if choice == 4:
+                                    if nike_shoes[buy_nike]['Size 7'] > 0:
+                                        if user_account[username]['balance'] >= nike_shoes[buy_nike]['Php']:
+                                            user_account[username]['balance'] -= nike_shoes[buy_nike]['Php']
+                                            nike_shoes[buy_nike]['Size 7'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_nike]
+                                            else:
+                                                user_collection[username].append(buy_nike)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 7 is out of stock")
+                                        break 
+
+                                if choice == 5:
+                                    if nike_shoes[buy_nike]['Size 6'] > 0:
+                                        if user_account[username]['balance'] >= nike_shoes[buy_nike]['Php']:
+                                            user_account[username]['balance'] -= nike_shoes[buy_nike]['Php']
+                                            nike_shoes[buy_nike]['Size 6'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_nike]
+                                            else:
+                                                user_collection[username].append(buy_nike)               
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)   
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 6 is out of stock")
+                                        break
                                 else:
                                     print("Invalid input. Try again")
                                     continue
                             except ValueError as e:
                                 print(e)
-                    else:
-                        print("Your balance is not enough to buy your chosen item")
-                        user_menu(username)
-                else:
-                    print("Out of stock")   
 
             if choice == 2:
 
@@ -613,32 +1037,167 @@ def buy_shoes(username):
                 if buy_adidas not in adidas_shoes:
                     print("Not available")
                     buy_shoes(username)
-                if buy_adidas in adidas_shoes and adidas_shoes[buy_adidas]['Quantity'] > 0:
-                    if user_account[username]['balance'] >= adidas_shoes[buy_adidas]['Php']:
-                        user_account[username]['balance'] -= adidas_shoes[buy_adidas]['Php']
-                        adidas_shoes[buy_adidas]['Quantity'] -= 1
-                        if username not in user_collection:
-                            user_collection[username] = [buy_adidas]
-                        else:
-                            user_collection[username].append(buy_adidas)
-                        print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")
+                if buy_adidas in adidas_shoes:
+                        print("Choose size of the shoes you want to buy: ")
+                        print("Enter [1] for Size 10")
+                        print("Enter [2] for Size 9")
+                        print("Enter [3] for Size 8")
+                        print("Enter [4] for Size 7")
+                        print("Enter [5] for Size 6")    
+
+                        choice = int(input("Enter your choice: "))
                         while True:
                             try:
-                                choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+
                                 if choice == 1:
-                                    buy_shoes(username)
+                                    if adidas_shoes[buy_adidas]['Size 10'] > 0:
+                                        if user_account[username]['balance'] >= adidas_shoes[buy_adidas]['Php']:
+                                            user_account[username]['balance'] -= adidas_shoes[buy_adidas]['Php']
+                                            adidas_shoes[buy_adidas]['Size 10'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_adidas]
+                                            else:
+                                                user_collection[username].append(buy_adidas)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 10 is out of stock")
+                                        break
+
                                 if choice == 2:
-                                    user_menu(username)
+                                    if adidas_shoes[buy_adidas]['Size 9'] > 0:
+                                        if user_account[username]['balance'] >= adidas_shoes[buy_adidas]['Php']:
+                                            user_account[username]['balance'] -= adidas_shoes[buy_adidas]['Php']
+                                            adidas_shoes[buy_adidas]['Size 9'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_adidas]
+                                            else:
+                                                user_collection[username].append(buy_adidas)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 9 is out of stock")
+                                        break
+            
+                                if choice == 3:
+                                    if adidas_shoes[buy_adidas]['Size 8'] > 0:
+                                        if user_account[username]['balance'] >= adidas_shoes[buy_adidas]['Php']:
+                                            user_account[username]['balance'] -= adidas_shoes[buy_adidas]['Php']
+                                            adidas_shoes[buy_adidas]['Size 8'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_adidas]
+                                            else:
+                                                user_collection[username].append(buy_adidas)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 8 is out of stock")
+                                        break
+
+                                if choice == 4:
+                                    if adidas_shoes[buy_adidas]['Size 7'] > 0:
+                                        if user_account[username]['balance'] >= adidas_shoes[buy_adidas]['Php']:
+                                            user_account[username]['balance'] -= adidas_shoes[buy_adidas]['Php']
+                                            adidas_shoes[buy_adidas]['Size 7'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_adidas]
+                                            else:
+                                                user_collection[username].append(buy_adidas)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 7 is out of stock")
+                                        break 
+
+                                if choice == 5:
+                                    if adidas_shoes[buy_adidas]['Size 6'] > 0:
+                                        if user_account[username]['balance'] >= adidas_shoes[buy_adidas]['Php']:
+                                            user_account[username]['balance'] -= adidas_shoes[buy_adidas]['Php']
+                                            adidas_shoes[buy_adidas]['Size 6'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_adidas]
+                                            else:
+                                                user_collection[username].append(buy_adidas)               
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)   
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 6 is out of stock")
+                                        break
                                 else:
                                     print("Invalid input. Try again")
                                     continue
                             except ValueError as e:
                                 print(e)
-                    else:
-                        print("Your balance is not enough to buy your chosen item")
-                        user_menu(username)
-                else:
-                    print("Out of stock")
 
             if choice == 3:
                 print("New Balance")
@@ -648,32 +1207,167 @@ def buy_shoes(username):
                 if buy_newbalance not in newbalance_shoes:
                     print("Not available")
                     buy_shoes(username)
-                if buy_newbalance in newbalance_shoes and newbalance_shoes[buy_newbalance]['Quantity'] > 0:
-                    if user_account[username]['balance'] >= newbalance_shoes[buy_newbalance]['Php']:
-                        user_account[username]['balance'] -= newbalance_shoes[buy_newbalance]['Php']
-                        newbalance_shoes[buy_newbalance]['Quantity'] -= 1
-                        if username not in user_collection:
-                            user_collection[username] = [buy_newbalance]
-                        else:
-                            user_collection[username].append(buy_newbalance)
-                        print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")
+                if buy_newbalance in newbalance_shoes:
+                        print("Choose size of the shoes you want to buy: ")
+                        print("Enter [1] for Size 10")
+                        print("Enter [2] for Size 9")
+                        print("Enter [3] for Size 8")
+                        print("Enter [4] for Size 7")
+                        print("Enter [5] for Size 6")    
+
+                        choice = int(input("Enter your choice: "))
                         while True:
                             try:
-                                choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+
                                 if choice == 1:
-                                    buy_shoes(username)
+                                    if newbalance_shoes[buy_newbalance]['Size 10'] > 0:
+                                        if user_account[username]['balance'] >= newbalance_shoes[buy_newbalance]['Php']:
+                                            user_account[username]['balance'] -= newbalance_shoes[buy_newbalance]['Php']
+                                            newbalance_shoes[buy_newbalance]['Size 10'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_newbalance]
+                                            else:
+                                                user_collection[username].append(buy_newbalance)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 10 is out of stock")
+                                        break
+
                                 if choice == 2:
-                                    user_menu(username)
+                                    if newbalance_shoes[buy_newbalance]['Size 9'] > 0:
+                                        if user_account[username]['balance'] >= newbalance_shoes[buy_newbalance]['Php']:
+                                            user_account[username]['balance'] -= newbalance_shoes[buy_newbalance]['Php']
+                                            newbalance_shoes[buy_newbalance]['Size 9'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_newbalance]
+                                            else:
+                                                user_collection[username].append(buy_newbalance)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 9 is out of stock")
+                                        break
+            
+                                if choice == 3:
+                                    if newbalance_shoes[buy_newbalance]['Size 8'] > 0:
+                                        if user_account[username]['balance'] >= newbalance_shoes[buy_newbalance]['Php']:
+                                            user_account[username]['balance'] -= newbalance_shoes[buy_newbalance]['Php']
+                                            newbalance_shoes[buy_newbalance]['Size 8'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_newbalance]
+                                            else:
+                                                user_collection[username].append(buy_newbalance)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 8 is out of stock")
+                                        break
+
+                                if choice == 4:
+                                    if newbalance_shoes[buy_newbalance]['Size 7'] > 0:
+                                        if user_account[username]['balance'] >= newbalance_shoes[buy_newbalance]['Php']:
+                                            user_account[username]['balance'] -= newbalance_shoes[buy_newbalance]['Php']
+                                            newbalance_shoes[buy_newbalance]['Size 7'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_newbalance]
+                                            else:
+                                                user_collection[username].append(buy_newbalance)
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")   
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 7 is out of stock")
+                                        break 
+
+                                if choice == 5:
+                                    if newbalance_shoes[buy_newbalance]['Size 6'] > 0:
+                                        if user_account[username]['balance'] >= newbalance_shoes[buy_newbalance]['Php']:
+                                            user_account[username]['balance'] -= newbalance_shoes[buy_newbalance]['Php']
+                                            newbalance_shoes[buy_newbalance]['Size 6'] -= 1
+                                            if username not in user_collection:
+                                                user_collection[username] = [buy_newbalance]
+                                            else:
+                                                user_collection[username].append(buy_newbalance)               
+                                            print(f"You already bought your chosen item. Your new balance is {user_account[username]['balance']}.")
+                                            while True:
+                                                try:
+                                                    choice = int(input("Press 1 if you want to buy again or press 2 if you want go to user menu: "))
+                                                    if choice == 1:
+                                                        buy_shoes(username)
+                                                    if choice == 2:
+                                                        user_menu(username)
+                                                    else:
+                                                        print("Invalid input. Try again")
+                                                        continue
+                                                except ValueError as e:
+                                                    print(e)   
+                                        else:
+                                            print("Your balance is not enough to buy your chosen item")
+                                            user_menu(username)        
+                                    else:
+                                        print("Size 6 is out of stock")
+                                        break
                                 else:
                                     print("Invalid input. Try again")
                                     continue
                             except ValueError as e:
                                 print(e)
-                    else:
-                        print("Your balance is not enough to buy your chosen item")
-                        user_menu(username)
-                else:
-                    print("Out of stock")
 
             if choice == 4:
                 shopping(username)
@@ -723,6 +1417,7 @@ def check_balance(username):
                 continue
         except ValueError as e:
             print(e)
+
 
 def shoe_collection(username):
     while True:
